@@ -16,7 +16,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          password: ${{ secrets.DOCKERHUB_TOKEN}}
       - name: auto-push docker driver
         run: docker buildx create --use --name build --node build --driver-opt network=host
       - name: Release build
@@ -32,3 +32,4 @@ jobs:
           tags: |
             abdelmounaimazz/release-it:${{ github.sha }}
             abdelmounaimazz/release-it:latest
+            abdelmounaimazz/release-it:${{ steps.get_tag.outputs.TAG }}
