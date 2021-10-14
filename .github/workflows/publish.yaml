@@ -27,6 +27,6 @@ jobs:
             Version=${{ steps.get_tag.outputs.TAG }}
             GitCommit=${{ github.sha }}
           tags: |
-            abdelmounaimazz/release-it:${{ github.sha }}
-            abdelmounaimazz/release-it:${{ steps.get_tag.outputs.TAG }}
-            abdelmounaimazz/release-it:latest
+            docker.io/abdelmounaimazz/release-it:${{ github.sha }}
+            docker.io/abdelmounaimazz/release-it:${{ steps.get_tag.outputs.TAG }}
+            docker.io/abdelmounaimazz/release-it:latest
