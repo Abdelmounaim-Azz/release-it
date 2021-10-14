@@ -32,4 +32,3 @@ jobs:
           tags: |
             abdelmounaimazz/release-it:${{ github.sha }}
             abdelmounaimazz/release-it:latest
-            abdelmounaimazz/release-it:${{ steps.get_tag.outputs.TAG }}
