@@ -21,12 +21,11 @@ jobs:
         id: release_build
         uses: docker/build-push-action@v2
         with:
-          outputs: "type=registry,push=true"
+          context: .
+          push: true
           platforms: linux/amd64,linux/arm/v6,linux/arm64
           build-args: |
             Version=${{ steps.get_tag.outputs.TAG }}
             GitCommit=${{ github.sha }}
           tags: |
-            docker.io/abdelmounaimazz/release-it:${{ github.sha }}
-            docker.io/abdelmounaimazz/release-it:${{ steps.get_tag.outputs.TAG }}
-            docker.io/abdelmounaimazz/release-it:latest
+            abdelmounaimazz/release-it:${{ github.sha }}
