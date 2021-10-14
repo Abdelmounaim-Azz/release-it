@@ -17,10 +17,11 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      - name: auto-push docker driver
+        run: docker buildx create --use --name build --node build --driver-opt network=host
       - name: Release build
         id: release_build
         uses: docker/build-push-action@v2
-        run: docker buildx create --use --name build --node build --driver-opt network=host
         with:
           context: .
           push: true
