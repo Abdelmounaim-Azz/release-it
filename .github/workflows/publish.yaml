@@ -29,4 +29,6 @@ jobs:
           build-args: |
             Version=${{ steps.get_tag.outputs.TAG }}
             GitCommit=${{ github.sha }}
-          tags: abdelmounaimazz/release-it:${{ github.sha }}
+          tags: |
+            abdelmounaimazz/release-it:${{ github.sha }}
+            abdelmounaimazz/release-it:latest
